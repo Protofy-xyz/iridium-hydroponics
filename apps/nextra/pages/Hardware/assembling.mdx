@@ -1,0 +1,134 @@
+import { Callout } from 'nextra/components'
+import { Cards, Card } from 'nextra/components'
+
+# 🛠️​ Assembling
+
+There are many ways of doing an hydroponic cultivation. Here is shown the plantation that we build. The Iridium system can adapt to different sizes and shapes.
+
+![Protofy](/media/iridium/iridium1.jpg?raw=true)
+<div style={{marginTop: "10px", marginBottom: "10px", display:"flex", flexDirection:"row", gap:"10px"}}>
+<div>
+![Protofy](/media/iridium/iridium_frontclosed.jpg?raw=true)
+</div>
+<div>
+![Protofy](/media/iridium/iridium_frontopen.jpg?raw=true)
+</div>
+</div>
+
+import React, {useState} from 'react';
+
+export function Dialog(props) {
+  const [isDialogOpen, setDialogOpen] = useState(false)
+
+  const toggleDialog = () => {
+    setDialogOpen(!isDialogOpen)
+  }
+  if (!isDialogOpen) return (<div style={{cursor:"zoom-in"}} onClick={toggleDialog}>{props.children}</div>)
+  return (
+    <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.8)', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={toggleDialog}>
+      <div style={{ maxWidth: '110vh', backgroundColor: 'white', padding: '20px', width:'80vw', height:'80vh' }} onClick={e => e.stopPropagation()}>
+        {props.children}
+      </div>
+    </div>
+  )
+}
+
+These are the main groups of hardware elements that form an automated garden:
+<Cards>
+  <Card title="🪴​ Cultivation kit" href="/Hardware/assembling#-cultivation-kit" / >
+  <Card title="⚡ Electronics unit" href="/Hardware/assembling#-electronics-unit" />
+  <Card title="⛽​ Nutrient pumping unit" href="/Hardware/assembling#-nutrient-pumping-unit" />
+  <Card title="🪣​ Reservoir" href="/Hardware/assembling#-reservoir" />
+  <Card title="🚰​ Water supply" href="/Hardware/assembling#-water-supply" />
+  <Card title="🫗​ Waste" href="/Hardware/assembling#-waste" />
+</Cards>
+
+
+## 🪴​ Cultivation kit
+First you need to assemble a hydroponic grow kit. We used this one made of PVC pipes. In order to group all the components, we built our own wheeled structure.
+<div style={{width:"300px"}}>
+![Protofy](/media/hydroponickit.jpg?raw=true)
+</div>
+
+
+## ⚡ Electronics unit
+<div>
+We assembled all the electronic components inside a box. 
+</div>
+<div style={{marginTop: "10px", marginBottom: "0px", display:"flex", flexDirection:"row", gap:"10px"}}>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/iridium_electronicbox.jpg?raw=true)
+</div>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/iridium_electronicsclosed.jpg?raw=true)
+</div>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/iridium_electronicsopen.jpg?raw=true)
+</div>
+</div>
+
+<Callout type="info" emoji="⚡">
+Check the electrical wiring guide [here](/Hardware/wiring)
+</Callout>
+
+
+
+## ⛽​ Nutrient pumping unit
+<div>
+We assembled all the liquid solutions and peristaltic pumps inside a box. Nutrients and pH solutions should not be exposed to light.
+</div>
+<div style={{marginTop: "10px", marginBottom: "0px", display:"flex", flexDirection:"row", gap:"10px"}}>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/iridium_nutrientbox.jpg?raw=true)
+</div>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/iridium_nutrientboxclosed.jpg?raw=true)
+</div>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/iridium_nutrientboxopen.jpg?raw=true)
+</div>
+</div>
+
+
+## 🪣​ Reservoir
+<div>
+You can use a container for your water reservoir. We used 3 of these european-standard boxes, one for the reservoir and two more for the [water supply](/Hardware/assembling#-water-supply) tank and the [waste](/Hardware/assembling#-waste) tank.
+</div>
+<div style={{marginTop: "10px", marginBottom: "10px", display:"flex", flexDirection:"row", gap:"10px"}}>
+<div style={{width:"400px"}}>
+![Protofy](/media/eurobox.jpeg?raw=true)
+</div>
+<div style={{width:"400px"}}>
+![Protofy](/media/iridium/iridium_tanks.jpg?raw=true)
+</div>
+</div>
+<div>
+Note that the water reservoir should be covered to prevent light entry. Light exposure can promote the growth of algae and pathogens, leading to various issues. Sunlight can also increase the temperature of the water in the reservoir.
+
+Several components are essential inside the water reservoir: the main flow pump, EC & pH probes, float switch, silicone tubes, etc.
+
+For this reason, we have designed a laser-cut add-on to cover the reservoir. This add-on attaches to the perimeter of the reservoir’s open face, securing and organizing all the elements that go inside. It features a removable lid that allows access to the interior of the reservoir without interfering with the installed components.
+</div>
+
+<div style={{marginTop: "10px", marginBottom: "10px", display:"flex", flexDirection:"row", gap:"10px"}}>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/reservoir_closed.jpg?raw=true)
+</div>
+<div style={{width:"300px"}}>
+![Protofy](/media/iridium/reservoir_open.jpg?raw=true)
+</div>
+<div style={{width:"350px"}}>
+![Protofy](/media/iridium/adjustingfloatswitch.jpg?raw=true)
+</div>
+</div>
+
+## 🚰​ Water supply
+<div style={{width:"400px"}}>
+![Protofy](/media/waterbottle.jpeg?raw=true)
+</div>
+
+## 🫗​ Waste
+<div style={{width:"400px"}}>
+![Protofy](/media/waterbottle.jpeg?raw=true)
+</div>
+

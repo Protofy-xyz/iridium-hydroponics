@@ -1,0 +1,30 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards, Card } from 'nextra/components'
+
+# 💡​ Photoperiod
+This automation helps setting the schedule for turning on and off the growing leds of your plantation. You can choose how many days a week and what time 
+![Protofy](/media/workspace/automation_photoperiod.png?raw=true)
+
+
+```js copy filename="photoperiod.ts"
+context.automation(
+  app,
+  async (params, res) => {
+    context.createPeriodicSchedule(
+      "08",
+      "00",
+      async () => await context.deviceAction("mydevice", "growingleds", "on"),
+      "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"
+    );
+    context.createPeriodicSchedule(
+      "19",
+      "00",
+      async () => await context.deviceAction("mydevice", "growingleds", "off"),
+      "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday"
+    );
+  },
+  "photoperiod"
+);
+
+```

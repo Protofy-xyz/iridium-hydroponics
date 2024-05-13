@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useRef, useState } from 'react'
 import { Button, Input, Text, Paragraph, Separator, Spinner, Stack, XStack, YStack, Spacer } from 'tamagui'
 import { Page, hasSessionCookie, Session, useSession, useSessionContext, createSession, Auth, Center, HorizontalBox, Notice, Section, SpotLight, ElevatedArea, BackgroundGradient, LogoIcon, PendingResult, getPendingResult } from 'protolib'
-import { getEnv } from 'protolib/base'
 import { DefaultLayout } from '../../layout/DefaultLayout'
 import Link from 'next/link'
 import { ProtofyLogoSVG, getErrorMessage, getValidation } from '@my/ui'
@@ -12,8 +11,8 @@ export function SignInPage(props) {
   return (
     <Page>
       <DefaultLayout
-        title="Protofy"
-        description="Made with love from Barcelona"
+        title="Iridium Hydroponics"
+        description="login"
         footer={null}>
         <YStack f={1} overflow={'hidden'}>
           <Section containerProps={{ f: 1 }} sectionProps={{ index: 0, p: 0 }}>
@@ -33,7 +32,6 @@ export function SignInPage(props) {
       </DefaultLayout>
     </Page>
 
-
   )
 }
 
@@ -47,8 +45,7 @@ function SignUp() {
   const [session, setSession] = useSession()
   const [sessionContext, setSessionContext] = useSessionContext()
   const router = useRouter()
-  const env = getEnv()
-  
+
   useEffect(() => {
     // @ts-ignore
     emailRef.current?.focus()
@@ -70,7 +67,7 @@ function SignUp() {
 
   const handleSignUp = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    Auth.register(email, password, rePassword, env, setAuthState)
+    Auth.register(email, password, rePassword, setAuthState)
   }
 
   return (

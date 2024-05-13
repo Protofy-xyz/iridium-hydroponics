@@ -1,0 +1,27 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards, Card } from 'nextra/components'
+
+# 🚰​ Water level stability
+This automation helps maintaining the water level constant. Regularly adjusting the water level is necessary to ensure reliable readings of EC. Water evaporation and absorption by plants mean that EC measurements taken at different water levels may not be accurate.
+You can check [here](/Hardware/assembling#-reservoir) how to adjust the float switch height so as to define the maximum water level in the reservoir.
+
+![Protofy](/media/workspace/automation_filltank.png?raw=true)
+
+
+```js copy filename="filltank.ts"
+context.deviceSub("mydevice", "floatswitch", "status", async (message, topic) =>
+  context.flow.switch(
+    message,
+    "OFF",
+    "equals",
+    async () => {
+      await context.deviceAction("mydevice", "freshwater", "on");
+    },
+    async () => {
+      await context.deviceAction("mydevice", "freshwater", "off");
+    },
+    null
+  )
+);
+```

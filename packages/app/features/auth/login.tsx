@@ -14,8 +14,8 @@ export function SignInPage(props) {
   return (
     <Page>
       <DefaultLayout
-        title="Protofy"
-        description="Made with love from Barcelona"
+        title="Iridium Hydroponics"
+        description="Sign In"
         footer={null}>
         <YStack f={1} overflow={'hidden'}>
           <Section containerProps={{ f: 1 }} sectionProps={{ index: 0, p: 0 }}>
@@ -63,7 +63,7 @@ function SignIn() {
   useEffect(() => {
     if (session.loggedIn) {
       //@ts-ignore
-      router.push(router.query.return ?? '/')
+      router.push(router.query.return ?? '/workspace/pages')
     }
   }, [session])
 
@@ -77,11 +77,12 @@ function SignIn() {
       <YStack miw={300} maw={320} jc="space-between" p="$2" gap="$4">
         <YStack mb="$4">
           <LogoIcon o={0.9}>
-            <ProtofyLogoSVG
+          <img src='/logo.png' style={{width: '100px', height: '100px'}}></img>
+            {/* <ProtofyLogoSVG
               className="tamagui-icon"
               width={600 / 5}
               height={652 / 5}
-            />
+            /> */}
           </LogoIcon>
         </YStack>
 

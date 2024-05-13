@@ -28,7 +28,6 @@ const config = {
         },
         {
             "name": "nextra",
-            "disabled": true,
             "description": "Documentation services for protofy, providing the documentation based on nextra",
             "route": (req, mode) => {
                 if(mode == 'development' && (req.url.startsWith('/documentation/') || req.url == '/documentation')) {

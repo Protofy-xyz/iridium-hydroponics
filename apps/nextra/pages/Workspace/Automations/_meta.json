@@ -1,0 +1,9 @@
+{
+  "sensorsmonitoring": "🖥️ Sensors Monitoring",
+  "actuatorscontrol": "🎚️ Actuators Control",
+  "waterlevel": "🚰 Water level stability",
+  "ecregulation": "🧂 EC autoregulation",
+  "phregulation": "🧪 pH autoregulation",
+  "photoperiod": "💡 Photoperiod"
+
+}

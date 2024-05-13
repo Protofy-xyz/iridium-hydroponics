@@ -1,0 +1,61 @@
+import { Callout } from 'nextra/components'
+import { Steps } from 'nextra/components'
+import { Cards, Card } from 'nextra/components'
+
+# 🧪 pH autoregulation
+This automation helps maintaining the pH level in your water reservoir between two values.
+
+You can define the pH range suitable for your plantation. In this example a pH of 6 is set as desired value, with a tolerance of +/- 0.3.
+Whenever the pH lecture is out of range, pH+ or pH- pumps will activate for 5 seconds (5000ms). A timer of 1h (3600000ms) is set to let the added pH dilution completely dissolve into the entire water system. Once the timer is over, the same process will repeat until pH lecture is in range. 
+
+![Protofy](/media/workspace/automation_phrange.png?raw=true)
+
+```js copy filename="phrange.ts"
+context.automation(
+  app,
+  async (params, res) => {
+    context.deviceSub(
+      "mydevice",
+      "phectemp",
+      "Ph",
+      async (message, topic, done) => {
+        context.flow.inRange(
+          message,
+          6,
+          0.3,
+          async (delta) =>
+            await context.deviceAction(
+              "mydevice",
+              "pumpphdown",
+              "pulsed_on",
+              5000,
+              null,
+              null
+            ),
+          async (delta) =>
+            await context.deviceAction(
+              "mydevice",
+              "pumpphup",
+              "pulsed_on",
+              5000,
+              null,
+              null
+            ),
+          null,
+          null
+        );
+        setTimeout(async () => {
+          context.executeAutomation("phrange", null, null, false);
+        }, 3600000);
+        done();
+        await context.logs.log({
+          message: "PHRANGE",
+          level: "info",
+        });
+      }
+    );
+  },
+  "phrange"
+);
+
+```

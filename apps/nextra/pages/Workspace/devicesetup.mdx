@@ -1,0 +1,63 @@
+import { Steps } from 'nextra/components'
+
+# 🤖 Device setup
+Now that your plantation is set up, you can edit your workspace.
+You can define your devices with its sensors and actuators in order to create your custom automations.
+
+Keep in mind that each device (ESP32) can have a limited number of sensors and actuators according to its available GPIO pins.
+
+## 📖​ ​Create a device definition
+First, you need to define what sensors and actuators will be connected to each device.
+<Steps>
+### Add new definition
+<div>
+In the Workspace home menu, go to 'IoT Devices' > 'Definitions' and click the ➕​ symbol
+</div>
+### Fill the parameters
+<div>
+Name your definition (eg. 'mydefiniton'), select your board (Protofy ESP32 devBoard) and sdk (esphome)
+</div>
+### Edit its config
+<div>
+In the config label, click in 'Edit'. You will see your ESP32 microcontroller. Click and drag from each pin to add a new object.
+</div>
+### Add wifi
+<div>
+Click and drag from any free GPIO, find the 'Connectivity' group and select 'Wifi'.
+In the wifi box, fill the SSID and password of your wifi connection.
+</div>
+### Add MQTT
+<div>
+Click and drag from any free GPIO, find the 'Connectivity' group and select 'MQTT'.
+In the MQTT box, fill the Broker Adress. You can find it typing 'ipconfig' in your terminal
+</div>
+### Add your sensors and actuators
+<div>
+Click and drag from any free GPIO, find your desired component.
+</div>
+</Steps>
+![Protofy](/media/workspace/devicedefinition.png?raw=true)
+
+
+## ​📲​​ ​Create a device
+Once you have a device definition set up, you need to upload it into a device. Users can manage their ESP32 devices here and add new ones as needed for monitoring and controlling their hydroponic systems.
+<Steps>
+### Add new device
+<div>
+In the Workspace home menu, go to 'IoT Devices' > 'Devices' and click the ➕​ symbol
+</div>
+### Fill the parameters
+<div>
+Name your new device and select the definition you want to upload into it
+</div>
+### Upload the definition
+<div>
+Connect the USB cable from your computer to your device (ESP32) and click 'Upload'
+</div>
+</Steps>
+
+## ​🎛️​​ Monitoring & Control Panel
+Once you upload the definition into the device, click on the 'grid view' in the upper right corner. Here you can check the values reported by the sensors, as well as test the actuators to ensure everything is functioning correctly.
+<div style={{marginTop: "10px", marginBottom: "50px", width:"500px"}}>
+![Protofy](/media/workspace/devicesubsystem.png?raw=true)
+</div>

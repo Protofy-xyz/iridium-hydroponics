@@ -29,8 +29,8 @@ export const DefaultLayout = React.forwardRef((props: {
         <HeaderMenuContent />
       </HeaderMenu>} />
     </AppBar>}
-    title="Protofy"
-    description="Protofy"
+    title="Iridium Hydroponics"
+    description="Iridium Hydroponics"
     openGraph={{
       type: 'website',
       locale: 'en_US',
