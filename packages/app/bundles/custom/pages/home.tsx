@@ -15,7 +15,7 @@ const Home = (props) => {
         <Section>
           <YStack py="$8" ai="center">
             <Head1 color={"$color7"} my="$1" $gtLg={{ scale: 1.4 }}>
-              Iridium Hydroponic
+              Iridium Hydroponics
             </Head1>
             <Head3 fontWeight="400">
               Create your own automatized garden
