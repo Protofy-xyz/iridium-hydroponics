@@ -24,7 +24,7 @@ const Home = (props) => {
           <YStack gap="$10" maw="950px" als="center">
             <img src="media/home-cover.png" width="100%" style={{ minHeight: '380px', objectFit: 'cover' }} />
             <YStack alignSelf="center" position="absolute" top="320px">
-              <Link href="http://localhost:8080/documentation">
+              <Link href="/documentation">
                 <ButtonSimple text={true} size="$3" padding="$4" theme="green" alignSelf="center">
                   go to documentation
                 </ButtonSimple>
