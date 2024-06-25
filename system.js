@@ -37,7 +37,7 @@ const config = {
         },
         {
             "name": "nextra-compiled",
-            "disabled": true,
+            "disabled": false,
             "description": "Compiled documentation services for protofy, providing the documentation based on nextra",
             "route": (req, mode) => {
                 if(mode == 'production' && (req.url.startsWith('/documentation/') || req.url == '/documentation')) {
