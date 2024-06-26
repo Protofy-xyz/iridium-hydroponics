@@ -40,7 +40,7 @@ export default Protofy("code", async (app: Application, context) => {
     app,
     async (params, res) => {
       context.deviceSub(
-        "mydevice",
+        "myfirstplantation",
         "phectemp",
         "Ph",
         async (message, topic, done) => {
@@ -50,7 +50,7 @@ export default Protofy("code", async (app: Application, context) => {
             0.3,
             async (delta) =>
               await context.deviceAction(
-                "mydevice",
+                "myfirstplantation",
                 "pumpphdown",
                 "pulsed_on",
                 5000,
@@ -59,7 +59,7 @@ export default Protofy("code", async (app: Application, context) => {
               ),
             async (delta) =>
               await context.deviceAction(
-                "mydevice",
+                "myfirstplantation",
                 "pumpphup",
                 "pulsed_on",
                 5000,
