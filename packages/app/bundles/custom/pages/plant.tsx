@@ -10,7 +10,7 @@ import { Objects } from 'app/bundles/objects'
 import { DataView, AdminPage, SSR, withSession } from 'protolib'
 import React from 'react'
 import { Router } from '@tamagui/lucide-icons';
-import { DevicesModel } from 'protolib/bundles/devices/devices';
+import { PlantModel } from '../objects/plant';
 
 const isProtected = Protofy("protected", false)
 const { name, prefix } = Objects.plant.getApiOptions()
@@ -27,7 +27,7 @@ export default {
         sourceUrl={sourceUrl}
         initialItems={initialItems}
         name="plant"
-        model={DevicesModel}
+        model={PlantModel}
         pageState={pageState}
       />
     </AdminPage>)
